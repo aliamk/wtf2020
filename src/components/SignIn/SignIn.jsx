@@ -1,15 +1,13 @@
-
 import React from 'react';
-import { Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Typography, Container } from '@material-ui/core';
+import { Avatar, Button, CssBaseline, TextField, FormControlLabel, Checkbox, Grid, Box, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import useStyles from './signin.styles'
 
-const SignIn = () => {
+const SignIn = ({ onRouteChange }) => {
 
     const classes = useStyles()
     return (
-
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" >
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -46,6 +44,7 @@ const SignIn = () => {
                         label="Remember me"
                     />
                     <Button
+                        onClick={() => onRouteChange('home')}
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -56,14 +55,14 @@ const SignIn = () => {
                   </Button>
                     <Grid container>
                         <Grid item xs>
-                            <Link href="#" variant="body2">
+                            {/* <Link href="#" variant="body2">
                                 Forgot password?
-                      </Link>
+                      </Link> */}
                         </Grid>
                         <Grid item>
-                            <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                            </Link>
+                            <a href="#" onClick={() => onRouteChange('register')} variant="body2">
+                                {"Don't have an account? Register"}
+                            </a>
                         </Grid>
                     </Grid>
                 </form>
@@ -72,7 +71,6 @@ const SignIn = () => {
                 {/* <Copyright /> */}
             </Box>
         </Container>
-
     )
 }
 
